@@ -1,3 +1,7 @@
+/* ----------------------------------- *\
+  #Navigation
+\* ----------------------------------- */
+
 nav {
     background-color: var(--color-primary);
     padding: 0.5rem;
@@ -6,34 +10,33 @@ nav {
     margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
 
-nav ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 3rem;
-    
-}
+    ul {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+    }
 
-nav li {
-    font-weight: var(--font-weight-strong);
-    font-size: var(--font-size-text);
-}
+    li {
+        font-weight: var(--font-weight-strong);
+        font-size: var(--font-size-text);
+    }
 
-nav a {
-    color: var(--color-light);
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    border-bottom: 3px solid transparent; // for the hover underline effect
-}
+    a {
+        color: var(--color-light);
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+        border-bottom: 3px solid transparent; // for the hover underline effect
 
-nav a:hover {
-    text-decoration: none;
-    border-bottom: 3px solid var(--color-anchor);
-    transform: translateY(3px);
+        &:hover {
+            text-decoration: none;
+            border-bottom: 3px solid var(--color-anchor);
+            transform: translateY(3px);
+        }
+    }
 }
 
 /* for smaller screens, stack the nav items vertically */

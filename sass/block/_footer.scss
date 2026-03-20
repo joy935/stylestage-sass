@@ -1,217 +1,218 @@
-/* =========================
-   Footer (nav-like bar + CTA buttons)
-   ========================= */
+/* ----------------------------------- *\
+  #Footer (nav-like bar + CTA buttons)
+\* ----------------------------------- */
+
 .page-footer {
   position: relative;
   z-index: 0;
-  background: transparent;
   overflow: hidden;
-  padding: 2rem 0 6rem 0;
-}
-.page-footer .container::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  top: 0px;
-  bottom: -30px;
-  z-index: -1;
-
-  background-image: 
-  linear-gradient(to bottom, var(--color-background), var(--color-primary));
-  background-repeat: no-repeat;
-
-  color: #fff;
-  padding: 3rem 2.25rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-/* Footer container */
-.page-footer .container {
-  max-width: 72rem;
-  margin: 0 auto;
-
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-/* Remove the "card blocks" look */
-.page-footer .container > * {
+  padding: 2rem 0;
   background: transparent;
-  border: 0;
-  border-radius: 0;
-  padding: 0;
-}
 
-/* Paragraphs */
-.page-footer p {
-  margin: 0;
-  opacity: 0.95;
-}
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 72rem;
+    margin: 0 auto;
 
-/* Links */
-.page-footer a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 700;
-  position: relative;
-
-  text-shadow:
-    0 0 0 rgba(255, 255, 255, 0),
-    0 0 0 rgba(154, 91, 217, 0);
-
-  transition:
-    text-shadow 180ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-/* ✨ Ultra-premium inline links (always visible) */
-.page-footer p a {
-  display: inline;
-  position: relative;
-
-  padding: 0.1rem 0.42rem;
-  border-radius: 6px;
-
-  /* Glass base always visible */
-  background: rgba(255, 255, 255, 0.12);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-
-  /* Thin gradient “ring” */
-  border: 1px solid transparent;
-  background:
-    linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12))
-      padding-box,
-    linear-gradient(90deg, rgba(255, 255, 255, 0.55), rgba(154, 91, 217, 0.75))
-      border-box;
-
-  /* Subtle glow even at rest */
-  box-shadow:
-    0 0 0 rgba(154, 91, 217, 0),
-    0 6px 16px rgba(2, 6, 23, 0.18);
-
-  transition:
-    transform 160ms ease,
-    box-shadow 180ms ease,
-    filter 180ms ease,
-    background 180ms ease;
-}
-
-.page-footer p a:hover,
-.page-footer p a:focus {
-  transform: translateY(-1px);
-
-  box-shadow:
-    0 0 14px rgba(154, 91, 217, 0.35),
-    0 10px 24px rgba(2, 6, 23, 0.28);
-
-  filter: brightness(1.03);
-}
-
-.page-footer a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -0.15rem;
-  width: 0;
-  height: 2px;
-
-  background: linear-gradient(90deg, #ffffff, #9a5bd9);
-  transition: width 180ms ease;
-}
-
-.page-footer a:hover,
-.page-footer a:focus {
-  opacity: 0.95;
-
-  text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.35),
-    0 0 12px rgba(154, 91, 217, 0.35);
-}
-
-.page-footer a:hover::after,
-.page-footer a:focus::after {
-  width: 100%;
-}
-
-/* Buttons row (the UL in footer) */
-.page-footer ul {
-  list-style: none;
-  margin: 0.75rem 0 0;
-  padding: 0;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-.page-footer li {
-  margin: 0;
-}
-
-/* Button-like links inside footer UL */
-.page-footer ul a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0.85rem 1.15rem;
-  border-radius: 12px;
-
-  background: rgba(255, 255, 255, 0.92);
-  color: #123a5c;
-
-  box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
-  text-decoration: none;
-}
-
-.page-footer ul a:hover,
-.page-footer ul a:focus {
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
-/* GitHub link with star icon */
-.page-footer a.link-github {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 800;
-}
-
-.page-footer a.link-github > svg {
-  width: 1.25em;
-  height: 1.25em;
-  flex: 0 0 auto;
-  fill: currentColor;
-}
-
-/* =========================
-   Responsive layout
-   ========================= */
-
-@media (min-width: 48rem) {
-  .page-footer .container {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 1.5rem;
-    align-items: start;
-  }
-
-  /* Keep the buttons list readable */
-  .page-footer ul {
-    margin-top: 0.25rem;
-  }
-
-  @media (max-width: 760px) {
-    .page-footer {
-      margin: 1.2rem;
-      padding: 2rem 1.25rem;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: -30px;
+      left: 50%;
+      z-index: -1;
+      width: 100vw;
+      transform: translateX(-50%);
+      background-image: linear-gradient(
+        to bottom,
+        var(--color-background),
+        var(--color-primary)
+      );
+      background-repeat: no-repeat;
     }
+
+    > * {
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+  }
+
+  p {
+    margin: 0;
+    opacity: 0.95;
+  }
+
+  /* Base link style */
+  a {
+    position: relative;
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+
+    text-shadow:
+      0 0 0 rgba(255, 255, 255, 0),
+      0 0 0 rgba(154, 91, 217, 0);
+
+    transition:
+      text-shadow 180ms ease,
+      opacity 180ms ease,
+      transform 180ms ease;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.15rem;
+      width: 0;
+      height: 2px;
+
+      background: linear-gradient(90deg, #ffffff, #9a5bd9);
+      transition: width 180ms ease;
+    }
+
+    &:hover,
+    &:focus {
+      opacity: 0.95;
+      text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.35),
+        0 0 12px rgba(154, 91, 217, 0.35);
+    }
+
+    &:hover::after,
+    &:focus::after {
+      width: 100%;
+    }
+  }
+
+  /* Inline paragraph links (glass style) */
+  p a {
+    display: inline;
+    position: relative;
+
+    padding: 0.1rem 0.42rem;
+    border-radius: 6px;
+
+    border: 1px solid transparent;
+
+    background:
+      linear-gradient(
+          rgba(255, 255, 255, 0.12),
+          rgba(255, 255, 255, 0.12)
+        )
+        padding-box,
+      linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.55),
+          rgba(154, 91, 217, 0.75)
+        )
+        border-box;
+
+    box-shadow:
+      0 0 0 rgba(154, 91, 217, 0),
+      0 6px 16px rgba(2, 6, 23, 0.18);
+
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+
+    transition:
+      transform 160ms ease,
+      box-shadow 180ms ease,
+      filter 180ms ease,
+      background 180ms ease;
+
+    &:hover,
+    &:focus {
+      transform: translateY(-1px);
+      filter: brightness(1.03);
+
+      box-shadow:
+        0 0 14px rgba(154, 91, 217, 0.35),
+        0 10px 24px rgba(2, 6, 23, 0.28);
+    }
+  }
+
+  /* Buttons row */
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  /* Button-like links */
+  ul a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0.85rem 1.15rem;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.92);
+    color: #123a5c;
+    text-decoration: none;
+
+    box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
+
+    &:hover,
+    &:focus {
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    /* prevent underline animation on buttons */
+    &::after {
+      display: none;
+    }
+  }
+
+  /* GitHub link */
+  a.link-github {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 800;
+
+    > svg {
+      width: 1.25em;
+      height: 1.25em;
+      flex: 0 0 auto;
+      fill: currentColor;
+    }
+  }
+}
+
+/* Desktop layout */
+@media (min-width: 48rem) {
+  .page-footer {
+    .container {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    ul {
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 760px) {
+  .page-footer {
+    margin: 1.2rem;
+    padding: 2rem 1.25rem;
   }
 }

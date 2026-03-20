@@ -1,85 +1,80 @@
-#about .container{
-  position: relative;
-}
+/* ----------------------------------- *\
+  #About Section
+\* ----------------------------------- */
+#about {
+  section.container {
+    position: relative;
+    border-radius: 18px;
+    padding: 1.6rem 1.8rem;
+  }
 
-#about section.container {
-  --accent: #7c3aed; /* violet */
+  h2 {
+    font-size: var(--font-size-h2);
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+  }
 
-  border-radius: 18px;
-  padding: 1.6rem 1.8rem;
-  // margin-bottom: 1.35rem;
-}
+  p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
 
-#about h2 {
-  font-size: var(--font-size-h2);
-  margin: 0 0 0.75rem;
-  line-height: 1.1;
-}
+  blockquote {
+    position: relative;
+    margin: 1rem 0 1.25rem;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
 
-#about p {
-  margin: 0 0 1rem;
-  line-height: 1.75;
-}
+    p {
+      margin: 0;
+    }
 
-#about blockquote {
-  margin: 1rem 0 1.25rem;
-  padding: 1rem 1.25rem;
-  border-radius: 16px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      bottom: 14px;
+      width: 6px;
+      background-color: var(--color-anchor);
+      border-radius: 999px;
+      opacity: 0.9;
+    }
+  }
 
-  position: relative;
-}
+  a {
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
 
-#about blockquote p {
-  margin: 0;
-}
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
 
-#about .container blockquote::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 14px;
-  bottom: 14px;
-  width: 6px;
-  background-color: var(--color-anchor);
-  border-radius: 999px;
-  opacity: 0.9;
-}
+  /* Skills List */
+  > section.container:nth-of-type(2) {
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      padding-left: 0;
+      margin: 1rem 0;
 
-#about a {
-  font-weight: var(--font-weight-strong);
-  text-decoration: none;
-}
+      li {
+        padding: 0.5rem 0.85rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.78);
+        border: 1px solid var(--color-anchor);
+        box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.08);
+        line-height: 1.2;
 
-#about a:hover,
-#about a:focus {
-  text-decoration: underline;
-}
-
-/* About > Modern CSS Under the Spotlight */
-// main .container > article#about > section.container:nth-of-type(2) {
-//   --accent: #7c3aed;
-// }
-
-#about > section.container:nth-of-type(2) ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 1rem 0;
-
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-
-#about > section.container:nth-of-type(2) ul li {
-  padding: 0.5rem 0.85rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.78);
-  border: 1px solid var(--color-anchor);
-  box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.08);
-  line-height: 1.2;
-}
-
-#about > section.container:nth-of-type(2) ul li:hover {
-  background-color: var(--color-anchor);
-  color: var(--color-light);
+        &:hover {
+          background-color: var(--color-anchor);
+          color: var(--color-light);
+        }
+      }
+    }
+  }
 }
