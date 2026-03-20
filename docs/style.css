@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/* ----------------------------------- *\
+  #Theme
+\* ----------------------------------- */
 @import url("https://fonts.googleapis.com/css2?family=Lobster+Two:wght@400;700&family=Quicksand:wght@400;500;600;700&display=swap");
 :root {
   --color-primary: #123a5c;
@@ -20,6 +23,9 @@
   --border-radius: 8px;
 }
 
+/* ----------------------------------- *\
+  #Base Styles
+\* ----------------------------------- */
 body {
   background-color: var(--color-background);
   color: var(--color-body);
@@ -117,56 +123,55 @@ select {
     scroll-behavior: auto !important;
   }
 }
+/* ----------------------------------- *\
+  #Header
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Fish Utility
+\* ----------------------------------- */
+/* Fish mixin */
 .skip-link {
   display: none;
 }
 
 header {
-  padding-bottom: 10px;
   margin: 10px;
   padding: 10px 0;
+  padding-bottom: 10px;
 }
-
 header .container {
   display: grid;
   grid-template-columns: 1fr auto;
 }
-
 header h1 {
   font-size: clamp(3rem, 7vw, var(--font-size-h1));
   margin-top: clamp(1rem, 6vh, 4rem);
   padding-top: 0;
 }
-
 header .container h1 {
   position: relative;
   overflow: hidden;
 }
-
 header h2 {
   font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
   grid-column: 1/-1;
   color: var(--color-primary);
   text-align: left;
 }
-
 header p,
 header .link-github {
   grid-column: 2;
   justify-self: end;
 }
-
 header p a {
   font-size: var(--font-size-text);
   color: var(--color-body);
   text-decoration: none;
 }
-
 header p a:hover {
   text-decoration: none;
   color: var(--color-anchor);
 }
-
 header .link-github {
   display: flex;
   gap: 0.5em;
@@ -178,7 +183,10 @@ header .link-github {
   border-radius: 5px;
   background-color: var(--color-anchor);
 }
-
+header .link-github:hover {
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
 header a.link-github svg {
   width: 1.25em;
   height: 1.25em;
@@ -187,54 +195,48 @@ header a.link-github svg {
   fill: var(--color-light);
 }
 
-header .link-github:hover {
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
 /* fish decoration */
-/* Header container = decoration anchor */
 header .container {
   position: relative;
   overflow: hidden;
   padding: 10px;
+  /* Large fish (top-right) */
 }
-
-/* Large fish (top-right) */
 header .container::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 20px;
-  width: clamp(28rem, 33vw, 38rem);
-  aspect-ratio: 5/3; /* matches viewBox 100x60 */
-  height: auto;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right center;
   opacity: 0.3;
   pointer-events: none;
+  top: 0;
+  right: 20px;
+  width: clamp(28rem, 33vw, 38rem);
+  aspect-ratio: 5/3; /* matches viewBox 100x60 */
+  height: auto;
 }
-
-/* Small fish (left-middle) */
+header .container {
+  /* Small fish (left-middle) */
+}
 header .container::after {
   content: "";
   position: absolute;
-  bottom: 1.25rem;
-  left: 5rem;
-  width: 8rem;
-  height: 4.8rem;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left center;
   opacity: 0.3;
-  transform: scaleX(-1);
   pointer-events: none;
+  bottom: 1.25rem;
+  left: 5rem;
+  width: 8rem;
+  height: 4.8rem;
+  transform: scaleX(-1);
 }
 
-/* add animation to the fish in the header */
+/* animation to the fish in the header */
 @keyframes swim {
   0% {
     transform: translateX(0) scaleX(1);
@@ -250,7 +252,7 @@ header .container::before {
   animation: swim 6s ease-in-out infinite;
 }
 
-/* Responsive */
+/* Responsive layout */
 @media (max-width: 600px) {
   header .container::before {
     display: none;
@@ -266,6 +268,9 @@ header .container::before {
     display: none;
   }
 }
+/* ----------------------------------- *\
+  #Navigation
+\* ----------------------------------- */
 nav {
   background-color: var(--color-primary);
   padding: 0.5rem;
@@ -275,7 +280,6 @@ nav {
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 nav ul {
   list-style: none;
   display: flex;
@@ -283,12 +287,10 @@ nav ul {
   justify-content: center;
   gap: 3rem;
 }
-
 nav li {
   font-weight: var(--font-weight-strong);
   font-size: var(--font-size-text);
 }
-
 nav a {
   color: var(--color-light);
   text-decoration: none;
@@ -296,7 +298,6 @@ nav a {
   transition: background-color 0.2s ease, transform 0.2s ease;
   border-bottom: 3px solid transparent;
 }
-
 nav a:hover {
   text-decoration: none;
   border-bottom: 3px solid var(--color-anchor);
@@ -311,92 +312,57 @@ nav a:hover {
     gap: 0.5rem;
   }
 }
-/* =========================
-   Footer (nav-like bar + CTA buttons)
-   ========================= */
+/* ----------------------------------- *\
+  #Footer (nav-like bar + CTA buttons)
+\* ----------------------------------- */
 .page-footer {
   position: relative;
   z-index: 0;
-  background: transparent;
   overflow: hidden;
-  padding: 2rem 0 6rem 0;
+  padding: 2rem 0;
+  background: transparent;
 }
-
-.page-footer .container::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  top: 0px;
-  bottom: -30px;
-  z-index: -1;
-  background-image: linear-gradient(to bottom, var(--color-background), var(--color-primary));
-  background-repeat: no-repeat;
-  color: #fff;
-  padding: 3rem 2.25rem;
-  font-size: 1.05rem;
-  line-height: 1.7;
-}
-
-/* Footer container */
 .page-footer .container {
-  max-width: 72rem;
-  margin: 0 auto;
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  max-width: 72rem;
+  margin: 0 auto;
 }
-
-/* Remove the "card blocks" look */
+.page-footer .container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: -30px;
+  left: 50%;
+  z-index: -1;
+  width: 100vw;
+  transform: translateX(-50%);
+  background-image: linear-gradient(to bottom, var(--color-background), var(--color-primary));
+  background-repeat: no-repeat;
+}
 .page-footer .container > * {
-  background: transparent;
+  padding: 0;
   border: 0;
   border-radius: 0;
-  padding: 0;
+  background: transparent;
 }
-
-/* Paragraphs */
 .page-footer p {
   margin: 0;
   opacity: 0.95;
 }
-
-/* Links */
+.page-footer {
+  /* Base link style */
+}
 .page-footer a {
+  position: relative;
   color: #ffffff;
   text-decoration: none;
   font-weight: 700;
-  position: relative;
   text-shadow: 0 0 0 rgba(255, 255, 255, 0), 0 0 0 rgba(154, 91, 217, 0);
   transition: text-shadow 180ms ease, opacity 180ms ease, transform 180ms ease;
 }
-
-/* ✨ Ultra-premium inline links (always visible) */
-.page-footer p a {
-  display: inline;
-  position: relative;
-  padding: 0.1rem 0.42rem;
-  border-radius: 6px;
-  /* Glass base always visible */
-  background: rgba(255, 255, 255, 0.12);
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  /* Thin gradient “ring” */
-  border: 1px solid transparent;
-  background: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)) padding-box, linear-gradient(90deg, rgba(255, 255, 255, 0.55), rgba(154, 91, 217, 0.75)) border-box;
-  /* Subtle glow even at rest */
-  box-shadow: 0 0 0 rgba(154, 91, 217, 0), 0 6px 16px rgba(2, 6, 23, 0.18);
-  transition: transform 160ms ease, box-shadow 180ms ease, filter 180ms ease, background 180ms ease;
-}
-
-.page-footer p a:hover,
-.page-footer p a:focus {
-  transform: translateY(-1px);
-  box-shadow: 0 0 14px rgba(154, 91, 217, 0.35), 0 10px 24px rgba(2, 6, 23, 0.28);
-  filter: brightness(1.03);
-}
-
 .page-footer a::after {
   content: "";
   position: absolute;
@@ -407,33 +373,50 @@ nav a:hover {
   background: linear-gradient(90deg, #ffffff, #9a5bd9);
   transition: width 180ms ease;
 }
-
-.page-footer a:hover,
-.page-footer a:focus {
+.page-footer a:hover, .page-footer a:focus {
   opacity: 0.95;
   text-shadow: 0 0 6px rgba(255, 255, 255, 0.35), 0 0 12px rgba(154, 91, 217, 0.35);
 }
-
-.page-footer a:hover::after,
-.page-footer a:focus::after {
+.page-footer a:hover::after, .page-footer a:focus::after {
   width: 100%;
 }
-
-/* Buttons row (the UL in footer) */
+.page-footer {
+  /* Inline paragraph links (glass style) */
+}
+.page-footer p a {
+  display: inline;
+  position: relative;
+  padding: 0.1rem 0.42rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: linear-gradient(rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)) padding-box, linear-gradient(90deg, rgba(255, 255, 255, 0.55), rgba(154, 91, 217, 0.75)) border-box;
+  box-shadow: 0 0 0 rgba(154, 91, 217, 0), 0 6px 16px rgba(2, 6, 23, 0.18);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition: transform 160ms ease, box-shadow 180ms ease, filter 180ms ease, background 180ms ease;
+}
+.page-footer p a:hover, .page-footer p a:focus {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+  box-shadow: 0 0 14px rgba(154, 91, 217, 0.35), 0 10px 24px rgba(2, 6, 23, 0.28);
+}
+.page-footer {
+  /* Buttons row */
+}
 .page-footer ul {
-  list-style: none;
-  margin: 0.75rem 0 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
 }
-
 .page-footer li {
   margin: 0;
 }
-
-/* Button-like links inside footer UL */
+.page-footer {
+  /* Button-like links */
+}
 .page-footer ul a {
   display: inline-flex;
   align-items: center;
@@ -442,24 +425,28 @@ nav a:hover {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.92);
   color: #123a5c;
+  text-decoration: none;
   box-shadow: 0 10px 22px rgba(2, 6, 23, 0.25);
-  text-decoration: none;
 }
-
-.page-footer ul a:hover,
-.page-footer ul a:focus {
-  text-decoration: none;
+.page-footer ul a:hover, .page-footer ul a:focus {
   transform: translateY(-2px);
+  text-decoration: none;
 }
-
-/* GitHub link with star icon */
+.page-footer ul a {
+  /* prevent underline animation on buttons */
+}
+.page-footer ul a::after {
+  display: none;
+}
+.page-footer {
+  /* GitHub link */
+}
 .page-footer a.link-github {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-weight: 800;
 }
-
 .page-footer a.link-github > svg {
   width: 1.25em;
   height: 1.25em;
@@ -467,9 +454,7 @@ nav a:hover {
   fill: currentColor;
 }
 
-/* =========================
-   Responsive layout
-   ========================= */
+/* Desktop layout */
 @media (min-width: 48rem) {
   .page-footer .container {
     display: grid;
@@ -477,50 +462,44 @@ nav a:hover {
     gap: 1.5rem;
     align-items: start;
   }
-  /* Keep the buttons list readable */
   .page-footer ul {
     margin-top: 0.25rem;
   }
 }
-@media (min-width: 48rem) and (max-width: 760px) {
+/* Mobile layout */
+@media (max-width: 760px) {
   .page-footer {
     margin: 1.2rem;
     padding: 2rem 1.25rem;
   }
 }
-#about .container {
-  position: relative;
-}
-
+/* ----------------------------------- *\
+  #About Section
+\* ----------------------------------- */
 #about section.container {
-  --accent: #7c3aed; /* violet */
+  position: relative;
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
 }
-
 #about h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
 }
-
 #about p {
   margin: 0 0 1rem;
   line-height: 1.75;
 }
-
 #about blockquote {
+  position: relative;
   margin: 1rem 0 1.25rem;
   padding: 1rem 1.25rem;
   border-radius: 16px;
-  position: relative;
 }
-
 #about blockquote p {
   margin: 0;
 }
-
-#about .container blockquote::before {
+#about blockquote::before {
   content: "";
   position: absolute;
   left: 0;
@@ -531,27 +510,24 @@ nav a:hover {
   border-radius: 999px;
   opacity: 0.9;
 }
-
 #about a {
   font-weight: var(--font-weight-strong);
   text-decoration: none;
 }
-
-#about a:hover,
-#about a:focus {
+#about a:hover, #about a:focus {
   text-decoration: underline;
 }
-
-/* About > Modern CSS Under the Spotlight */
+#about {
+  /* Skills List */
+}
 #about > section.container:nth-of-type(2) ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  list-style: none;
+  padding-left: 0;
+  margin: 1rem 0;
 }
-
 #about > section.container:nth-of-type(2) ul li {
   padding: 0.5rem 0.85rem;
   border-radius: 999px;
@@ -560,53 +536,46 @@ nav a:hover {
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.08);
   line-height: 1.2;
 }
-
 #about > section.container:nth-of-type(2) ul li:hover {
   background-color: var(--color-anchor);
   color: var(--color-light);
 }
 
-#contribute .container {
-  position: relative;
-}
-
+/* ----------------------------------- *\
+  #Contribute Section
+\* ----------------------------------- */
 #contribute section.container {
+  position: relative;
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
 }
-
 #contribute h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
 }
-
 #contribute h3 {
   font-size: var(--font-size-h3);
   margin: 0 0 0.75rem;
 }
-
 #contribute p {
   margin: 0 0 1rem;
   line-height: 1.75;
 }
-
 #contribute p:last-child {
   margin-bottom: 0;
 }
-
 #contribute a {
   font-weight: var(--font-weight-strong);
   text-decoration: none;
   text-align: center;
 }
-
-#contribute a:hover,
-#contribute a:focus {
+#contribute a:hover, #contribute a:focus {
   text-decoration: underline;
 }
-
-/* Steps to Contribute (section 2) */
+#contribute {
+  /* Steps List */
+}
 #contribute > section.container:nth-of-type(2) ol {
   list-style: none;
   padding-left: 0;
@@ -615,7 +584,6 @@ nav a:hover {
   display: grid;
   gap: 0.85rem;
 }
-
 #contribute > section.container:nth-of-type(2) ol > li {
   counter-increment: steps;
   position: relative;
@@ -625,7 +593,6 @@ nav a:hover {
   border: 1px solid rgba(15, 23, 42, 0.12);
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.08);
 }
-
 #contribute > section.container:nth-of-type(2) ol > li::before {
   content: counter(steps);
   position: absolute;
@@ -641,13 +608,14 @@ nav a:hover {
   font-weight: 800;
   line-height: 1;
 }
-
 #contribute > section.container:nth-of-type(2) ol > li:hover {
   border-color: var(--color-anchor);
 }
 
-/* This targets the footer inside #contribute that has id="files" */
-#contribute footer#files .container {
+/* ----------------------------------- *\
+  #Files Section
+\* ----------------------------------- */
+#files .container {
   position: relative;
   border-radius: 18px;
   padding: 1.6rem 1.8rem;
@@ -658,16 +626,14 @@ nav a:hover {
   gap: 0.75rem;
   text-align: center;
 }
-
-#contribute footer#files h3 {
+#files h3 {
   font-size: var(--font-size-h3);
   margin: 0 0 1rem;
   line-height: 1.1;
   flex: 1 1 100%;
   justify-self: center;
 }
-
-#contribute footer#files a {
+#files a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -683,42 +649,63 @@ nav a:hover {
   margin-right: 0; /* CHANGED */
   margin-bottom: 0; /* CHANGED */
 }
-
-#contribute footer#files a:hover,
-#contribute footer#files a:focus {
+#files a:hover, #files a:focus {
   text-decoration: none;
   filter: brightness(1.03);
   transform: translateY(-1px);
 }
-
-/* Secondary button (Fork the CodePen) */
-#contribute footer#files .link-codepen {
+#files {
+  /* Secondary button (Fork the CodePen) */
+}
+#files .link-codepen {
   background: rgba(255, 255, 255, 0.7);
   color: var(--color-primary);
   border-color: var(--color-anchor);
 }
-
-#contribute footer#files .link-codepen:hover,
-#contribute footer#files .link-codepen:focus {
+#files .link-codepen:hover, #files .link-codepen:focus {
+  text-decoration: none;
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+#files {
+  /* Secondary button (Fork the CodePen) */
+}
+#files .link-codepen {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
+  border-color: var(--color-anchor);
+}
+#files .link-codepen:hover, #files .link-codepen:focus {
   background: var(--color-anchor);
   color: var(--color-light);
 }
 
-#guidelines .container {
+/* ----------------------------------- *\
+  #Guidelines Section
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Wave Utility
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Turtle Utility
+\* ----------------------------------- */
+#guidelines {
   position: relative;
+  z-index: 0;
+  background: transparent;
 }
-
 #guidelines section.container {
+  position: relative;
   border-radius: 22px;
   padding: 1.6rem 1.8rem;
+  border: 1px solid rgba(18, 58, 92, 0.12);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.65);
 }
-
 #guidelines h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
 }
-
 #guidelines h2::before {
   display: inline-block;
   content: "";
@@ -727,28 +714,21 @@ nav a:hover {
   margin-right: 10px;
   background: radial-gradient(20px 20px at 81% 44%, var(--color-background) 0 19px, transparent 20px), radial-gradient(20px 20px at 68% 90%, var(--color-secondary) 0 19px, transparent 20px), radial-gradient(20px 20px at 15% 70%, var(--color-secondary) 0 19px, transparent 20px);
 }
-
 #guidelines h3 {
   font-size: var(--font-size-h3);
   margin: 1.25rem 0 0.75rem;
 }
-
 #guidelines p {
   margin: 0 0 1rem;
   line-height: 1.75;
 }
-
 #guidelines a {
   font-weight: var(--font-weight-strong);
   text-decoration: none;
 }
-
-#guidelines a:hover,
-#guidelines a:focus {
+#guidelines a:hover, #guidelines a:focus {
   text-decoration: underline;
 }
-
-/* Button-like link (Review full guidelines) in same “About-ish” style */
 #guidelines .link-guidelines {
   display: inline-flex;
   align-items: center;
@@ -761,19 +741,10 @@ nav a:hover {
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.1);
   text-decoration: none;
 }
-
-#guidelines .link-guidelines:hover,
-#guidelines .link-guidelines:focus {
+#guidelines .link-guidelines:hover, #guidelines .link-guidelines:focus {
   background: var(--color-anchor);
   color: var(--color-light);
   text-decoration: none;
-}
-
-/* dark background behind the guidelines section */
-#guidelines {
-  position: relative;
-  z-index: 0;
-  background: transparent;
 }
 
 article#guidelines::before {
@@ -792,33 +763,17 @@ article#guidelines::before {
   background-position: 5% 20%, 8% 80%, 91% 55%;
 }
 
-/* another background layer with box shadow*/
-#guidelines section.container {
-  position: relative;
-  z-index: 1;
-}
-
-#guidelines section.container {
-  border: 1px solid rgba(18, 58, 92, 0.12);
-  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.65);
-}
-
 @media (max-width: 600px) {
   article#guidelines::before {
     background: none;
   }
 }
-/* sass/compo/_profile.scss */
-/* =========================
-   Component: Currently Staged Style (profile)
-   - NOT floating / NOT fixed
-   - Centered, clean, and distinct
-   ========================= */
+/* ----------------------------------- *\
+  #Profile Section
+\* ----------------------------------- */
 aside.profile {
   margin: 2rem 0;
 }
-
-/* Use child selector to win over global .container rules cleanly */
 aside.profile > .container {
   /* Visually distinct card */
   border: 2px solid transparent;
@@ -829,28 +784,26 @@ aside.profile > .container {
   backdrop-filter: blur(8px);
   padding: 1.25rem 1.25rem;
   text-align: center;
-  /* Make it feel like a component (not full container width) */
   max-width: 60rem; /* narrower than global .container (72rem) */
   margin-inline: auto;
 }
-
 aside.profile h4 {
   margin: 0 0 0.9rem;
   font-size: 1.2rem;
   letter-spacing: 0.01em;
 }
-
-/* Inline list */
+aside.profile {
+  /* Inline list */
+}
 aside.profile ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.85rem 1.25rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
 }
-
 aside.profile li {
   display: inline-flex;
   align-items: baseline;
@@ -860,17 +813,16 @@ aside.profile li {
   background: rgba(255, 255, 255, 0.55);
   border: 1px solid rgba(15, 23, 42, 0.1);
 }
-
 aside.profile li span:first-child {
   font-weight: 800;
   opacity: 0.9;
 }
-
 aside.profile li span:last-child {
   opacity: 0.95;
 }
-
-/* “View Stylesheet” button */
+aside.profile {
+  /* “View Stylesheet” button */
+}
 aside.profile a[href*="/styles/"] {
   display: inline-flex;
   align-items: center;
@@ -885,9 +837,7 @@ aside.profile a[href*="/styles/"] {
   box-shadow: 0 12px 26px rgba(2, 6, 23, 0.16);
   transition: transform 180ms ease, filter 180ms ease;
 }
-
-aside.profile a[href*="/styles/"]:hover,
-aside.profile a[href*="/styles/"]:focus {
+aside.profile a[href*="/styles/"]:hover, aside.profile a[href*="/styles/"]:focus {
   text-decoration: none;
   transform: translateY(-2px);
   filter: brightness(1.03);
@@ -904,6 +854,9 @@ aside.profile a[href*="/styles/"]:focus {
     gap: 0.65rem 0.9rem;
   }
 }
+/* ----------------------------------- *\
+  #Featured Section
+\* ----------------------------------- */
 aside#styles .container {
   text-align: center;
   padding: 2.25rem 1.75rem;
@@ -990,9 +943,9 @@ aside#styles .link-allstyles:focus {
   filter: brightness(1.03);
 }
 
-/* =========================
-   Utility: Hover – Ocean Glow
-   ========================= */
+/* ----------------------------------- *\
+  #Hover Utility
+\* ----------------------------------- */
 /* Links */
 a {
   transition: opacity 180ms ease, filter 180ms ease;
@@ -1028,6 +981,9 @@ article,
   transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
 }
 
+/* ----------------------------------- *\
+  #Ocean Utility
+\* ----------------------------------- */
 main article section.container {
   font-family: var(--font-family);
   font-size: 1.05rem;
