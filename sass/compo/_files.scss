@@ -1,0 +1,63 @@
+/* This targets the footer inside #contribute that has id="files" */
+#contribute footer#files .container {
+  position: relative;
+  border-radius: 18px;
+  padding: 1.6rem 1.8rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+}
+
+#contribute footer#files h3 {
+  font-size: var(--font-size-h3);
+  margin: 0 0 1rem;
+  line-height: 1.1;
+
+  flex: 1 1 100%;
+  justify-self: center;
+}
+
+#contribute footer#files a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0.75rem 1.1rem;
+  border-radius: 12px;
+
+  background: var(--color-anchor);
+  color: var(--color-light);
+  text-decoration: none;
+  font-weight: 800;
+
+  box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.1);
+  border: 1px solid transparent;
+
+  /* spacing handled by gap */
+  margin-right: 0; /* CHANGED */
+  margin-bottom: 0; /* CHANGED */
+}
+
+#contribute footer#files a:hover,
+#contribute footer#files a:focus {
+  text-decoration: none;
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+}
+
+/* Secondary button (Fork the CodePen) */
+#contribute footer#files .link-codepen {
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--color-primary);
+  border-color: var(--color-anchor);
+}
+
+#contribute footer#files .link-codepen:hover,
+#contribute footer#files .link-codepen:focus {
+  background: var(--color-anchor);
+  color: var(--color-light);
+}

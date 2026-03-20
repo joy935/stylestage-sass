@@ -1,0 +1,5 @@
+@function turtle-svg($carapace-color: "c2cba4", $head-arm-color: "dde4c8") {
+    $svg: "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='33' r='8' fill='%23#{$head-arm-color}'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23#{$head-arm-color}'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23#{$head-arm-color}'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23#{$head-arm-color}'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23#{$head-arm-color}'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%23#{$carapace-color}'/></svg>";
+
+    @return url("data:image/svg+xml,#{$svg}");
+}

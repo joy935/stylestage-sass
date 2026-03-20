@@ -1,5 +1,5 @@
 @use "../utilities/wave";
-@use "../utilities/fish";
+@use "../utilities/turtle";
 
 #guidelines .container {
   position: relative;
@@ -82,26 +82,20 @@ article#guidelines::before {
   bottom: -30px;
   z-index: -1;
 
-  /* fish decoration */
+  /* turtle decoration */
   background-image: 
-    fish.fish-svg(),
-    fish.fish-svg(),
-    fish.fish-svg(),
-    fish.fish-svg(),
-    fish.fish-svg();
+    turtle.turtle-svg(),
+    turtle.turtle-svg(),
+    turtle.turtle-svg();
   background-repeat: no-repeat;
   background-size: 
     150px auto, 
     80px auto, 
-    130px auto, 
-    100px auto, 
-    90px auto;
+    280px auto;
   background-position: 
     5% 20%, 
     8% 80%, 
-    80% 55%, 
-    87% 87%,
-    90%  30%;
+    91% 55%;
 }
 
 /* another background layer with box shadow*/
