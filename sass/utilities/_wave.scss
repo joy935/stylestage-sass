@@ -1,3 +1,6 @@
+/* ----------------------------------- *\
+  #Wave Utility
+\* ----------------------------------- */
 @mixin decorative-wave($size, $color:var(--color-background)) {
     display: inline-block;
     content: "";
@@ -18,5 +21,3 @@
         transparent 20px
         );
 }
-
-// filter: brightness(1.02);

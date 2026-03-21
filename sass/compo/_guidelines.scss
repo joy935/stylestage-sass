@@ -1,75 +1,78 @@
+/* ----------------------------------- *\
+  #Guidelines Section
+\* ----------------------------------- */
 @use "../utilities/wave";
 @use "../utilities/turtle";
 
-#guidelines .container {
-  position: relative;
-}
-
-#guidelines section.container {
-  border-radius: 22px;
-  padding: 1.6rem 1.8rem;
-}
-
-#guidelines h2 {
-  font-size: var(--font-size-h2);
-  margin: 0 0 0.75rem;
-  line-height: 1.1;
-}
-
-#guidelines h2::before {
-  @include wave.decorative-wave(50px);
-}
-
-#guidelines h3 {
-  font-size: var(--font-size-h3);
-  margin: 1.25rem 0 0.75rem;
-}
-
-#guidelines p {
-  margin: 0 0 1rem;
-  line-height: 1.75;
-}
-
-#guidelines a {
-  font-weight: var(--font-weight-strong);
-  text-decoration: none;
-}
-
-#guidelines a:hover,
-#guidelines a:focus {
-  text-decoration: underline;
-}
-
-/* Button-like link (Review full guidelines) in same “About-ish” style */
-#guidelines .link-guidelines {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-
-  margin-top: 0.75rem;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.70);
-  border: 1px solid var(--color-anchor);
-  box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.10);
-
-  text-decoration: none;
-}
-
-#guidelines .link-guidelines:hover,
-#guidelines .link-guidelines:focus {
-  background: var(--color-anchor);
-  color: var(--color-light);
-  text-decoration: none;
-}
-
-/* dark background behind the guidelines section */
 #guidelines {
   position: relative;
   z-index: 0;
   background: transparent;
+
+  section.container {
+    position: relative;
+    border-radius: 22px;
+    padding: 1.6rem 1.8rem;
+
+    border: 1px solid rgba(18,58,92,0.12);
+    box-shadow:
+    0 26px 60px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.65);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+
+    &::before {
+      @include wave.decorative-wave(50px);
+    }
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+    margin: 1.25rem 0 0.75rem;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+
+  a {
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .link-guidelines {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+
+    margin-top: 0.75rem;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid var(--color-anchor);
+    box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.10);
+
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      background: var(--color-anchor);
+      color: var(--color-light);
+      text-decoration: none;
+    }
+  }
 }
 
 article#guidelines::before {
@@ -96,24 +99,6 @@ article#guidelines::before {
     5% 20%, 
     8% 80%, 
     91% 55%;
-}
-
-/* another background layer with box shadow*/
-#guidelines section.container {
-  position: relative;
-  z-index: 1;
-}
-
-#guidelines section.container {
-  // background: linear-gradient(
-  //   to bottom,
-  //   rgba(26, 71, 109, 0.82),
-  //   rgba(22, 63, 99, 0.82)
-  // );
-  border: 1px solid rgba(18,58,92,0.12);
-  box-shadow:
-    0 26px 60px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.65);
 }
 
 @media (max-width: 600px) {
