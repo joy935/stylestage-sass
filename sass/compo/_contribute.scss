@@ -1,17 +1,21 @@
 /* ----------------------------------- *\
   #Contribute Section
 \* ----------------------------------- */
+@use "../utilities/shadow_title";
+
 #contribute {
   section.container {
     position: relative;
     border-radius: 18px;
-    padding: 1.6rem 1.8rem;
+    padding: 1rem 1.8rem;
   }
 
   h2 {
     font-size: var(--font-size-h2);
     margin: 0 0 0.75rem;
+    padding-top: 3rem;
     line-height: 1.1;
+    @include shadow_title.shadow-title();
   }
 
   h3 {
