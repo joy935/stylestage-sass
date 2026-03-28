@@ -6,11 +6,11 @@
 :root {
   --color-primary: #123a5c;
   --color-primary-alt: #3f5149;
-  --color-secondary: #8b2e23;
+  --color-secondary: #822B21;
   --color-background: #c8f2e9;
   --color-text: #26423d;
   --color-light: #fff;
-  --color-anchor: #9a5bd9;
+  --color-anchor: #6627A5;
   --color-decoration-soft: rgba(255, 255, 255, 0.25);
   --font-heading: Lobster Two, cursive, sans-serif;
   --font-family: Quicksand, sans-serif;
@@ -127,6 +127,9 @@ select {
   #Header
 \* ----------------------------------- */
 /* ----------------------------------- *\
+  #Turtle Utility
+\* ----------------------------------- */
+/* ----------------------------------- *\
   #Fish Utility
 \* ----------------------------------- */
 /* Fish mixin */
@@ -147,6 +150,7 @@ header h1 {
   font-size: clamp(3rem, 7vw, var(--font-size-h1));
   margin-top: clamp(1rem, 6vh, 4rem);
   padding-top: 0;
+  text-shadow: 2px 2px 0.5px var(--color-anchor), 4px 4px 0.5px #c887db;
 }
 header .container h1 {
   position: relative;
@@ -175,16 +179,16 @@ header p a:hover {
 header .link-github {
   display: flex;
   gap: 0.5em;
-  padding: 0.25em 0.5em;
+  padding: 0.35em 0.5em;
   color: var(--color-light);
   text-decoration: none;
   font-weight: var(--font-weight-strong);
   border: 1px solid var(--color-anchor);
-  border-radius: 5px;
-  background-color: var(--color-anchor);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
 }
 header .link-github:hover {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
   border: 1px solid var(--color-primary);
 }
 header a.link-github svg {
@@ -205,7 +209,7 @@ header .container {
 header .container::before {
   content: "";
   position: absolute;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: right center;
@@ -213,7 +217,7 @@ header .container::before {
   pointer-events: none;
   top: 0;
   right: 20px;
-  width: clamp(28rem, 33vw, 38rem);
+  width: clamp(20rem, 33vw, 38rem);
   aspect-ratio: 5/3; /* matches viewBox 100x60 */
   height: auto;
 }
@@ -223,7 +227,7 @@ header .container {
 header .container::after {
   content: "";
   position: absolute;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%239FCACD' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239FCACD' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%238CA9A3'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: left center;
@@ -254,9 +258,6 @@ header .container::before {
 
 /* Responsive layout */
 @media (max-width: 600px) {
-  header .container::before {
-    display: none;
-  }
   header p,
   header .link-github {
     grid-column: 1/-1;
@@ -307,46 +308,31 @@ nav a:hover {
 /* for smaller screens, stack the nav items vertically */
 @media (max-width: 600px) {
   nav ul {
-    flex-direction: column;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
   }
 }
 /* ----------------------------------- *\
   #Footer (nav-like bar + CTA buttons)
 \* ----------------------------------- */
 .page-footer {
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-  padding: 2rem 0;
-  background: transparent;
+  background: #123a5c;
+  color: #fff;
+  border-top: none;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 1200px;
+  border-radius: 5px 5px 0 0;
+  margin: 0 auto;
 }
 .page-footer .container {
   position: relative;
+  max-width: 72rem;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  max-width: 72rem;
-  margin: 0 auto;
-}
-.page-footer .container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: -30px;
-  left: 50%;
-  z-index: -1;
-  width: 100vw;
-  transform: translateX(-50%);
-  background-image: linear-gradient(to bottom, var(--color-background), var(--color-primary));
-  background-repeat: no-repeat;
-}
-.page-footer .container > * {
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
+  padding: 2rem;
 }
 .page-footer p {
   margin: 0;
@@ -469,22 +455,25 @@ nav a:hover {
 /* Mobile layout */
 @media (max-width: 760px) {
   .page-footer {
-    margin: 1.2rem;
-    padding: 2rem 1.25rem;
+    padding: 0;
   }
 }
 /* ----------------------------------- *\
   #About Section
 \* ----------------------------------- */
+/* ----------------------------------- *\
+  #Shadow Title Utility
+\* ----------------------------------- */
 #about section.container {
   position: relative;
   border-radius: 18px;
-  padding: 1.6rem 1.8rem;
+  padding: 1rem 1.8rem;
 }
 #about h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
+  text-shadow: 2px 1px 0.5px #c887db;
 }
 #about p {
   margin: 0 0 1rem;
@@ -547,12 +536,14 @@ nav a:hover {
 #contribute section.container {
   position: relative;
   border-radius: 18px;
-  padding: 1.6rem 1.8rem;
+  padding: 1rem 1.8rem;
 }
 #contribute h2 {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
+  padding-top: 3rem;
   line-height: 1.1;
+  text-shadow: 2px 1px 0.5px #c887db;
 }
 #contribute h3 {
   font-size: var(--font-size-h3);
@@ -613,6 +604,112 @@ nav a:hover {
 }
 
 /* ----------------------------------- *\
+  #Featured Section
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Fish Pattern Utility
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Scales Pattern Utility
+\* ----------------------------------- */
+/* ----------------------------------- *\
+  #Turtle Pattern Utility
+\* ----------------------------------- */
+aside#styles .container {
+  text-align: center;
+  padding: 2.25rem 1.75rem;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+aside#styles h2 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  text-shadow: 2px 1px 0.5px #c887db;
+}
+aside#styles ul.features {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+  justify-content: center;
+  /* Highlight the first feature */
+}
+aside#styles ul.features li {
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 210px;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(-25 50 30)'%3E%3Cpath fill='%239451CB' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%239451CB' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23c887db'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat, repeat;
+  background-size: 90px 60px;
+  background-position: 0 0;
+  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
+  background-color: #4123A7;
+}
+aside#styles ul.features {
+  /* Highlight the second feature */
+}
+aside#styles ul.features li:nth-child(2) {
+  background: radial-gradient(circle at 50% 100%, #9451CB 0 45px, transparent 46px) 35px 140px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #4123A7 0 45px, transparent 46px) 0 120px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #c887db 0 45px, transparent 46px) 35px 100px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #9451CB 0 45px, transparent 46px) 0 80px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #4123A7 0 45px, transparent 46px) 35px 60px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #c887db 0 45px, transparent 46px) 0 40px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #9451CB 0 45px, transparent 46px) 35px 20px/70px 70px repeat-x, radial-gradient(circle at 50% 100%, #4123A7 0 45px, transparent 46px) 0 0/70px 70px repeat-x;
+}
+aside#styles ul.features {
+  /* Highlight the third feature */
+}
+aside#styles ul.features li:nth-child(3) {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g transform='rotate(-22.5 50 50)'><circle cx='50' cy='33' r='8' fill='%23c887db'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23c887db'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23c887db'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23c887db'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23c887db'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%239451CB'/></g></svg>"), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g transform='rotate(-22.5 50 50)'><circle cx='50' cy='33' r='8' fill='%23c887db'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23c887db'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23c887db'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23c887db'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23c887db'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%239451CB'/></g></svg>");
+  background-repeat: repeat, repeat;
+  background-size: 90px 90px, 90px 90px;
+  background-position: 0 0, 45px 45px;
+  background-color: #4123A7;
+}
+
+aside#styles ul.features li > span {
+  display: grid;
+  gap: 0.35rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+aside#styles ul.features a {
+  color: #4123A7;
+  font-weight: 900;
+  text-decoration: none;
+}
+aside#styles ul.features span span {
+  color: #4123A7;
+  font-weight: 700;
+}
+
+aside#styles .link-allstyles {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.95rem 1.25rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
+  transition: transform 180ms ease, filter 180ms ease;
+}
+aside#styles .link-allstyles:hover, aside#styles .link-allstyles:focus {
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
+  transform: translateY(-2px);
+  filter: brightness(1.03);
+}
+
+@media (min-width: 760px) {
+  aside#styles ul.features {
+    grid-template-columns: repeat(3, 220px);
+  }
+}
+/* ----------------------------------- *\
   #Files Section
 \* ----------------------------------- */
 #files .container {
@@ -638,7 +735,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.1rem;
-  border-radius: 12px;
+  border-radius: 999px;
   background: var(--color-anchor);
   color: var(--color-light);
   text-decoration: none;
@@ -686,9 +783,6 @@ nav a:hover {
 /* ----------------------------------- *\
   #Wave Utility
 \* ----------------------------------- */
-/* ----------------------------------- *\
-  #Turtle Utility
-\* ----------------------------------- */
 #guidelines {
   position: relative;
   z-index: 0;
@@ -705,6 +799,7 @@ nav a:hover {
   font-size: var(--font-size-h2);
   margin: 0 0 0.75rem;
   line-height: 1.1;
+  text-shadow: 2px 1px 0.5px #c887db;
 }
 #guidelines h2::before {
   display: inline-block;
@@ -717,6 +812,14 @@ nav a:hover {
 #guidelines h3 {
   font-size: var(--font-size-h3);
   margin: 1.25rem 0 0.75rem;
+  /* Tilt */
+  display: inline-block;
+  transform: rotate(-10deg);
+  /* Radial gradient */
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 #guidelines p {
   margin: 0 0 1rem;
@@ -736,14 +839,14 @@ nav a:hover {
   margin-top: 0.75rem;
   padding: 0.75rem 1.1rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.7);
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
   border: 1px solid var(--color-anchor);
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.1);
   text-decoration: none;
+  color: var(--color-light);
 }
 #guidelines .link-guidelines:hover, #guidelines .link-guidelines:focus {
-  background: var(--color-anchor);
-  color: var(--color-light);
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
   text-decoration: none;
 }
 
@@ -756,23 +859,18 @@ article#guidelines::before {
   top: -30px;
   bottom: -30px;
   z-index: -1;
-  /* turtle decoration */
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='33' r='8' fill='%23dde4c8'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23dde4c8'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%23c2cba4'/></svg>"), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='33' r='8' fill='%23dde4c8'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23dde4c8'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%23c2cba4'/></svg>"), url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='33' r='8' fill='%23dde4c8'/><ellipse cx='37' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='63' cy='53' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='43' cy='73' rx='10' ry='5' fill='%23dde4c8'/><ellipse cx='56' cy='73' rx='10' ry='5' fill='%23dde4c8'/><path d='M50 15 C60 15,65 40,65 50 C65 60,60 65,50 65 C40 65,35 60,35 50 C35 40,40 15,50 15Z' transform='rotate(180 50 50)' fill='%23c2cba4'/></svg>");
+  /* fish decoration */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%23BCE6E1' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23BCE6E1' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23B6DCD4'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%23BCE6E1' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23BCE6E1' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23B6DCD4'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%23BCE6E1' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23BCE6E1' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23B6DCD4'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%23BCE6E1' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23BCE6E1' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23B6DCD4'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cg transform='rotate(0 50 30)'%3E%3Cpath fill='%23BCE6E1' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23BCE6E1' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23B6DCD4'/%3E%3C/g%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 150px auto, 80px auto, 280px auto;
-  background-position: 5% 20%, 8% 80%, 91% 55%;
+  background-size: 65px auto, 65px auto, 80px auto, 65px auto, 150px auto;
+  background-position: 10% 30%, 5% 40%, 8% 80%, 91% 35%, 90% 50%;
 }
 
-@media (max-width: 600px) {
-  article#guidelines::before {
-    background: none;
-  }
-}
 /* ----------------------------------- *\
   #Profile Section
 \* ----------------------------------- */
 aside.profile {
-  margin: 2rem 0;
+  margin: 2rem auto;
 }
 aside.profile > .container {
   /* Visually distinct card */
@@ -782,14 +880,14 @@ aside.profile > .container {
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.4)) padding-box, linear-gradient(90deg, #2563eb, #7c3aed) border-box;
   box-shadow: 0 14px 34px rgba(2, 6, 23, 0.14);
   backdrop-filter: blur(8px);
-  padding: 1.25rem 1.25rem;
+  padding: 1.25rem;
   text-align: center;
-  max-width: 60rem; /* narrower than global .container (72rem) */
-  margin-inline: auto;
+  max-width: 60rem;
+  width: min(60rem, 100% - 4rem);
 }
 aside.profile h4 {
   margin: 0 0 0.9rem;
-  font-size: 1.2rem;
+  font-size: 2rem;
   letter-spacing: 0.01em;
 }
 aside.profile {
@@ -828,8 +926,8 @@ aside.profile a[href*="/styles/"] {
   align-items: center;
   justify-content: center;
   padding: 0.85rem 1.25rem;
-  border-radius: 14px;
-  background: rgba(37, 99, 235, 0.95);
+  border-radius: 999px;
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
   color: #fff;
   text-decoration: none;
   font-weight: 900;
@@ -841,108 +939,24 @@ aside.profile a[href*="/styles/"]:hover, aside.profile a[href*="/styles/"]:focus
   text-decoration: none;
   transform: translateY(-2px);
   filter: brightness(1.03);
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
 }
 
 /* Small screens */
 @media (max-width: 600px) {
+  aside.profile {
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
   aside.profile > .container {
     padding: 1.1rem 1rem;
-    text-align: left;
+    text-align: center;
   }
   aside.profile ul {
-    justify-content: flex-start;
+    justify-content: center;
     gap: 0.65rem 0.9rem;
   }
 }
-/* ----------------------------------- *\
-  #Featured Section
-\* ----------------------------------- */
-aside#styles .container {
-  text-align: center;
-  padding: 2.25rem 1.75rem;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-aside#styles h2 {
-  margin: 0 0 1.75rem;
-  font-size: clamp(2rem, 4vw, 3rem);
-}
-
-aside#styles ul.features {
-  list-style: none;
-  padding: 0;
-  margin: 0 auto 1.5rem;
-  display: grid;
-  gap: 1.25rem;
-  justify-content: center;
-}
-
-@media (min-width: 760px) {
-  aside#styles ul.features {
-    grid-template-columns: repeat(3, 220px);
-  }
-}
-aside#styles ul.features li {
-  border-radius: 16px;
-  overflow: hidden;
-  min-height: 150px;
-  background: linear-gradient(135deg, #4f46e5, #2563eb);
-  box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
-  display: grid;
-  place-items: center;
-  padding: 1rem;
-}
-
-aside#styles ul.features li > span {
-  display: grid;
-  gap: 0.35rem;
-  padding: 1rem 1.1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.22);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-}
-
-aside#styles ul.features a {
-  color: #fff;
-  font-weight: 900;
-  text-decoration: none;
-}
-
-aside#styles ul.features span span {
-  color: rgba(255, 255, 255, 0.92);
-  font-weight: 700;
-}
-
-aside#styles ul.features li:nth-child(2) {
-  background: linear-gradient(135deg, #2563eb, #0ea5e9);
-}
-
-aside#styles ul.features li:nth-child(3) {
-  background: linear-gradient(135deg, #4338ca, #7c3aed);
-}
-
-aside#styles .link-allstyles {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.95rem 1.25rem;
-  border-radius: 14px;
-  background: rgba(37, 99, 235, 0.95);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 900;
-  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.18);
-  transition: transform 180ms ease, filter 180ms ease;
-}
-
-aside#styles .link-allstyles:hover,
-aside#styles .link-allstyles:focus {
-  transform: translateY(-2px);
-  filter: brightness(1.03);
-}
-
 /* ----------------------------------- *\
   #Hover Utility
 \* ----------------------------------- */
@@ -979,43 +993,4 @@ input[type=button]:hover,
 article,
 .page-footer .container > * {
   transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
-}
-
-/* ----------------------------------- *\
-  #Ocean Utility
-\* ----------------------------------- */
-main article section.container {
-  font-family: var(--font-family);
-  font-size: 1.05rem;
-  line-height: 1.85;
-  letter-spacing: 0.01em;
-  color: var(--color-text);
-  border-radius: 18px;
-  padding: 1.6rem 1.8rem;
-  margin-bottom: 1.35rem;
-  /* background:
-    radial-gradient(18px 18px at 12% 22%, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0) 70%),
-    radial-gradient(24px 24px at 82% 30%, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0) 70%),
-    radial-gradient(14px 14px at 65% 78%, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0) 70%); */
-}
-
-main article section.container p,
-main article section.container li {
-  max-width: 100%;
-}
-
-/* Highlight inline text links only (avoid button-like links) */
-main article section.container :is(p, li, blockquote) a {
-  color: var(--color-anchor);
-  text-decoration: none;
-  font-weight: 700;
-  padding: 0.05em 0.25em;
-  border-radius: 0.4em;
-  background: rgba(154, 91, 217, 0.12);
-}
-
-main article section.container :is(p, li, blockquote) a:hover,
-main article section.container :is(p, li, blockquote) a:focus {
-  background: rgba(154, 91, 217, 0.2);
-  text-decoration: underline;
 }
