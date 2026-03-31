@@ -1,0 +1,6 @@
+/* ----------------------------------- *\
+  #Shadow Title Utility
+\* ----------------------------------- */
+@mixin shadow-title($color: #c887db) {
+    text-shadow: 2px 1px 0.5px $color;
+}

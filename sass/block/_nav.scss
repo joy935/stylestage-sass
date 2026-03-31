@@ -42,8 +42,7 @@ nav {
 /* for smaller screens, stack the nav items vertically */
 @media (max-width: 600px) {
     nav ul {
-        flex-direction: column;
         align-items: center;
-        gap: 0.5rem;
+        gap: 1rem;
     }
 }

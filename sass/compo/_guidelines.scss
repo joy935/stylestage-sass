@@ -2,7 +2,8 @@
   #Guidelines Section
 \* ----------------------------------- */
 @use "../utilities/wave";
-@use "../utilities/turtle";
+@use "../utilities/svg";
+@use "../utilities/shadow_title";
 
 #guidelines {
   position: relative;
@@ -24,6 +25,7 @@
     font-size: var(--font-size-h2);
     margin: 0 0 0.75rem;
     line-height: 1.1;
+    @include shadow_title.shadow-title();
 
     &::before {
       @include wave.decorative-wave(50px);
@@ -33,6 +35,16 @@
   h3 {
     font-size: var(--font-size-h3);
     margin: 1.25rem 0 0.75rem;
+
+    /* Tilt */
+    display: inline-block;
+    transform: rotate(-10deg);
+
+    /* Radial gradient */
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   p {
@@ -60,16 +72,16 @@
     padding: 0.75rem 1.1rem;
     border-radius: 999px;
 
-    background: rgba(255, 255, 255, 0.70);
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
     border: 1px solid var(--color-anchor);
     box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.10);
 
     text-decoration: none;
+    color: var(--color-light);
 
     &:hover,
     &:focus {
-      background: var(--color-anchor);
-      color: var(--color-light);
+      background: linear-gradient(135deg, #7c3aed, #4338ca);
       text-decoration: none;
     }
   }
@@ -85,24 +97,24 @@ article#guidelines::before {
   bottom: -30px;
   z-index: -1;
 
-  /* turtle decoration */
+  /* fish decoration */
   background-image: 
-    turtle.turtle-svg(),
-    turtle.turtle-svg(),
-    turtle.turtle-svg();
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4");
   background-repeat: no-repeat;
   background-size: 
-    150px auto, 
-    80px auto, 
-    280px auto;
+    65px auto,
+    65px auto,
+    80px auto,
+    65px auto,
+    150px auto;
   background-position: 
-    5% 20%, 
+    10% 30%,
+    5% 40%,
     8% 80%, 
-    91% 55%;
-}
-
-@media (max-width: 600px) {
-  article#guidelines::before {
-    background: none;
-  }
+    91% 35%,
+    90% 50%;
 }

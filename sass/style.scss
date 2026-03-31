@@ -8,12 +8,13 @@
 
 @use "compo/about";
 @use "compo/contribute";
+@use "compo/featured";
 @use "compo/files";
 @use "compo/guidelines";
 @use "compo/profile";
-@use "compo/featured";
 
-@use "utilities/fish";
+@use "utilities/feature_pattern";
 @use "utilities/hover";
+@use "utilities/shadow_title";
+@use "utilities/svg";
 @use "utilities/wave";
-@use "utilities/ocean";

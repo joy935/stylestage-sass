@@ -2,7 +2,7 @@
   #Profile Section
 \* ----------------------------------- */
 aside.profile {
-  margin: 2rem 0;
+  margin: 2rem auto;
 
   > .container {
     /* Visually distinct card */
@@ -18,16 +18,17 @@ aside.profile {
     box-shadow: 0 14px 34px rgba(2, 6, 23, 0.14);
     backdrop-filter: blur(8px);
 
-    padding: 1.25rem 1.25rem;
+    padding: 1.25rem;
     text-align: center;
 
-    max-width: 60rem; /* narrower than global .container (72rem) */
-    margin-inline: auto;
+    max-width: 60rem;
+    width: min(60rem, calc(100% - 4rem));
+    
   }
 
   h4 {
     margin: 0 0 0.9rem;
-    font-size: 1.2rem;
+    font-size: 2rem;
     letter-spacing: 0.01em;
   }
 
@@ -71,9 +72,9 @@ aside.profile {
     justify-content: center;
 
     padding: 0.85rem 1.25rem;
-    border-radius: 14px;
+    border-radius: 999px;
 
-    background: rgba(37, 99, 235, 0.95);
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
     color: #fff;
     text-decoration: none;
     font-weight: 900;
@@ -87,6 +88,7 @@ aside.profile {
       text-decoration: none;
       transform: translateY(-2px);
       filter: brightness(1.03);
+      background: linear-gradient(135deg, #7c3aed, #4338ca);
     }
   }
 }
@@ -94,12 +96,15 @@ aside.profile {
 /* Small screens */
 @media (max-width: 600px) {
   aside.profile {
+    margin: 0 auto;
+    padding: 1rem 0;
+
     > .container {
       padding: 1.1rem 1rem;
-      text-align: left;
+      text-align: center;
     }
     ul {
-      justify-content: flex-start;
+      justify-content: center;
       gap: 0.65rem 0.9rem;
     }
   }
