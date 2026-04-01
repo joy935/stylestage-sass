@@ -150,3 +150,10 @@ header .container::before {
     display: none;
   }
 }
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .fish {
+    animation: none;
+  }
+}
