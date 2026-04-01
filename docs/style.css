@@ -269,6 +269,12 @@ header .container::before {
     display: none;
   }
 }
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .fish {
+    animation: none;
+  }
+}
 /* ----------------------------------- *\
   #Navigation
 \* ----------------------------------- */
@@ -672,7 +678,7 @@ aside#styles ul.features li > span {
   gap: 0.35rem;
   padding: 1rem 1.1rem;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.45);
 }
 aside#styles ul.features a {
@@ -993,4 +999,34 @@ input[type=button]:hover,
 article,
 .page-footer .container > * {
   transition: background-color 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+/* ----------------------------------- *\
+  #Inline Links Utility
+\* ----------------------------------- */
+main article section.container {
+  font-family: var(--font-family);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+  color: var(--color-text);
+}
+main article section.container p,
+main article section.container li {
+  max-width: 100%;
+}
+main article section.container {
+  /* Highlight inline text links only (avoid button-like links) */
+}
+main article section.container :is(p, li, blockquote) a {
+  color: var(--color-anchor);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 0.05em 0.25em;
+  border-radius: 0.4em;
+  background: rgba(154, 91, 217, 0.12);
+}
+main article section.container :is(p, li, blockquote) a:hover, main article section.container :is(p, li, blockquote) a:focus {
+  background: rgba(154, 91, 217, 0.2);
+  text-decoration: underline;
 }
