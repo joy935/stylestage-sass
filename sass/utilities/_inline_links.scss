@@ -1,0 +1,33 @@
+/* ----------------------------------- *\
+  #Inline Links Utility
+\* ----------------------------------- */
+@use "../global/theme" as *;
+
+main article section.container {
+    font-family: var(--font-family);
+    font-size: 1.05rem;
+    line-height: 1.85;
+    letter-spacing: 0.01em;
+    color: var(--color-text);
+
+    p,
+    li {
+        max-width: 100%;
+    }
+
+    /* Highlight inline text links only (avoid button-like links) */
+    :is(p, li, blockquote) a {
+        color: var(--color-anchor);
+        text-decoration: none;
+        font-weight: 700;
+        padding: 0.05em 0.25em;
+        border-radius: 0.4em;
+        background: rgba(154, 91, 217, 0.12);
+
+        &:hover,
+        &:focus {
+            background: rgba(154, 91, 217, 0.20);
+            text-decoration: underline;
+        }
+    }
+}
