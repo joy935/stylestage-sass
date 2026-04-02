@@ -132,6 +132,9 @@ select {
 /* ----------------------------------- *\
   #Fish Utility
 \* ----------------------------------- */
+/* ----------------------------------- *\
+  #Shadow Title Utility
+\* ----------------------------------- */
 /* Fish mixin */
 .skip-link {
   display: none;
@@ -150,7 +153,7 @@ header h1 {
   font-size: clamp(3rem, 7vw, var(--font-size-h1));
   margin-top: clamp(1rem, 6vh, 4rem);
   padding-top: 0;
-  text-shadow: 3px 3px 0.5px #c887db;
+  text-shadow: 2px 1px 0.5px #c887db;
 }
 header .container h1 {
   position: relative;
@@ -466,9 +469,6 @@ nav a:hover {
 }
 /* ----------------------------------- *\
   #About Section
-\* ----------------------------------- */
-/* ----------------------------------- *\
-  #Shadow Title Utility
 \* ----------------------------------- */
 #about section.container {
   position: relative;
