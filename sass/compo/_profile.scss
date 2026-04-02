@@ -1,112 +1,112 @@
-/* sass/compo/_profile.scss */
-
-/* =========================
-   Component: Currently Staged Style (profile)
-   - NOT floating / NOT fixed
-   - Centered, clean, and distinct
-   ========================= */
+/* ----------------------------------- *\
+  #Profile Section
+\* ----------------------------------- */
+@use "../utilities/gradient_button";
 
 aside.profile {
-  margin: 2rem 0;
-}
+  margin: 2rem auto;
 
-/* Use child selector to win over global .container rules cleanly */
-aside.profile > .container {
-  /* Visually distinct card */
-  border: 2px solid transparent;
-  border-radius: 18px;
-  color: var(--color-body);
+  > .container {
+    /* Visually distinct card */
+    border: 2px solid transparent;
+    border-radius: 18px;
+    color: var(--color-body);
 
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.4))
-      padding-box,
-    linear-gradient(90deg, #2563eb, #7c3aed) border-box;
+    background:
+      linear-gradient(135deg, rgba(255, 255, 255, 0.78), rgba(255, 255, 255, 0.4))
+        padding-box,
+      linear-gradient(90deg, #2563eb, #7c3aed) border-box;
 
-  box-shadow: 0 14px 34px rgba(2, 6, 23, 0.14);
-  backdrop-filter: blur(8px);
+    box-shadow: 0 14px 34px rgba(2, 6, 23, 0.14);
+    backdrop-filter: blur(8px);
 
-  padding: 1.25rem 1.25rem;
-  text-align: center;
+    padding: 1.25rem;
+    text-align: center;
 
-  /* Make it feel like a component (not full container width) */
-  max-width: 60rem; /* narrower than global .container (72rem) */
-  margin-inline: auto;
-}
+    max-width: 60rem;
+    width: min(60rem, calc(100% - 4rem));
+    
+  }
 
-aside.profile h4 {
-  margin: 0 0 0.9rem;
-  font-size: 1.2rem;
-  letter-spacing: 0.01em;
-}
+  h4 {
+    margin: 0 0 0.9rem;
+    font-size: 2rem;
+    letter-spacing: 0.01em;
+  }
 
-/* Inline list */
-aside.profile ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
+  /* Inline list */
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.85rem 1.25rem;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.85rem 1.25rem;
-}
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+  }
 
-aside.profile li {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
+  li {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.35rem;
 
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
+    padding: 0.35rem 0.65rem;
+    border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.55);
-  border: 1px solid rgba(15, 23, 42, 0.1);
-}
+    background: rgba(255, 255, 255, 0.55);
+    border: 1px solid rgba(15, 23, 42, 0.1);
 
-aside.profile li span:first-child {
-  font-weight: 800;
-  opacity: 0.9;
-}
+    span:first-child {
+      font-weight: 800;
+      opacity: 0.9;
+    }
 
-aside.profile li span:last-child {
-  opacity: 0.95;
-}
+    span:last-child {
+      opacity: 0.95;
+    }
+  }
 
-/* “View Stylesheet” button */
-aside.profile a[href*="/styles/"] {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  /* “View Stylesheet” button */
+  a[href*="/styles/"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  padding: 0.85rem 1.25rem;
-  border-radius: 14px;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
 
-  background: rgba(37, 99, 235, 0.95);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 900;
-  line-height: 1;
+    @include gradient_button.purple();
+    color: #fff;
+    text-decoration: none;
+    font-weight: 900;
+    line-height: 1;
 
-  box-shadow: 0 12px 26px rgba(2, 6, 23, 0.16);
-  transition: transform 180ms ease, filter 180ms ease;
-}
+    box-shadow: 0 12px 26px rgba(2, 6, 23, 0.16);
+    transition: transform 180ms ease, filter 180ms ease;
 
-aside.profile a[href*="/styles/"]:hover,
-aside.profile a[href*="/styles/"]:focus {
-  text-decoration: none;
-  transform: translateY(-2px);
-  filter: brightness(1.03);
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      transform: translateY(-2px);
+      filter: brightness(1.03);
+    }
+  }
 }
 
 /* Small screens */
 @media (max-width: 600px) {
-  aside.profile > .container {
-    padding: 1.1rem 1rem;
-    text-align: left;
-  }
+  aside.profile {
+    margin: 0 auto;
+    padding: 1rem 0;
 
-  aside.profile ul {
-    justify-content: flex-start;
-    gap: 0.65rem 0.9rem;
+    > .container {
+      padding: 1.1rem 1rem;
+      text-align: center;
+    }
+    ul {
+      justify-content: center;
+      gap: 0.65rem 0.9rem;
+    }
   }
 }

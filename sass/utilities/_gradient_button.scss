@@ -1,0 +1,9 @@
+/* ----------------------------------- *\
+  #Gradient Button Utility
+\* ----------------------------------- */
+@mixin purple($color1: #4338ca, $color2: #7c3aed) {
+    background: linear-gradient(135deg, $color1, $color2);
+    &:hover {
+        background: linear-gradient(135deg, $color2, $color1);
+    }
+}

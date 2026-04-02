@@ -1,81 +1,89 @@
+/* ----------------------------------- *\
+  #Guidelines Section
+\* ----------------------------------- */
 @use "../utilities/wave";
-@function fish-svg($fill) {
-  // IMPORTANT: keep full drawing area (goes to x=100), no cropping
-  @return url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60'%3E%3Cpath fill='%23#{$fill}' d='M30 30c0-14 14-25 35-25s35 11 35 25-14 25-35 25-35-11-35-25z'/%3E%3Cpath fill='%23#{$fill}' d='M30 30c-10-11-19-14-27-14 5 7 5 21 0 28 8 0 17-3 27-14z'/%3E%3Ccircle cx='72' cy='24' r='3' fill='%23000'/%3E%3C/svg%3E");
-}
+@use "../utilities/svg";
+@use "../utilities/shadow_title";
+@use "../utilities/gradient_button";
 
-#guidelines .container {
-  position: relative;
-}
-
-#guidelines section.container {
-  border-radius: 22px;
-  padding: 1.6rem 1.8rem;
-}
-
-#guidelines h2 {
-  font-size: var(--font-size-h2);
-  margin: 0 0 0.75rem;
-  line-height: 1.1;
-  color: var(--color-light);
-}
-
-#guidelines h2::before {
-  @include wave.decorative-wave(50px, #1a476d, var(--color-light));
-}
-
-#guidelines h3 {
-  font-size: var(--font-size-h3);
-  margin: 1.25rem 0 0.75rem;
-  color: var(--color-light);
-}
-
-#guidelines p {
-  margin: 0 0 1rem;
-  line-height: 1.75;
-  color: var(--color-light);
-}
-
-#guidelines a {
-  font-weight: var(--font-weight-strong);
-  text-decoration: none;
-}
-
-#guidelines a:hover,
-#guidelines a:focus {
-  text-decoration: underline;
-}
-
-/* Button-like link (Review full guidelines) in same “About-ish” style */
-#guidelines .link-guidelines {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  
-
-  margin-top: 0.75rem;
-  padding: 0.75rem 1.1rem;
-  border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.70);
-  border: 1px solid var(--color-anchor);
-  box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.10);
-
-  text-decoration: none;
-}
-
-#guidelines .link-guidelines:hover,
-#guidelines .link-guidelines:focus {
-  background: var(--color-anchor);
-  color: var(--color-light);
-  text-decoration: none;
-}
-
-/* dark background behind the guidelines section */
 #guidelines {
   position: relative;
   z-index: 0;
   background: transparent;
+
+  section.container {
+    position: relative;
+    border-radius: 22px;
+    padding: 1.6rem 1.8rem;
+
+    border: 1px solid rgba(18,58,92,0.12);
+    box-shadow:
+    0 26px 60px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.65);
+  }
+
+  h2 {
+    font-size: var(--font-size-h2);
+    margin: 0 0 0.75rem;
+    line-height: 1.1;
+    @include shadow_title.shadow-title();
+
+    &::before {
+      @include wave.decorative-wave(50px);
+    }
+  }
+
+  h3 {
+    font-size: var(--font-size-h3);
+    margin: 1.25rem 0 0.75rem;
+
+    /* Tilt */
+    display: inline-block;
+    transform: rotate(-10deg);
+
+    /* Radial gradient */
+    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  p {
+    margin: 0 0 1rem;
+    line-height: 1.75;
+  }
+
+  a {
+    font-weight: var(--font-weight-strong);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .link-guidelines {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+
+    margin-top: 0.75rem;
+    padding: 0.75rem 1.1rem;
+    border-radius: 999px;
+    @include gradient_button.purple();
+    border: 1px solid var(--color-anchor);
+    box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.10);
+
+    text-decoration: none;
+    color: var(--color-light);
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+    }
+  }
 }
 
 article#guidelines::before {
@@ -86,39 +94,26 @@ article#guidelines::before {
   width: 100vw;
   top: -30px;
   bottom: -30px;
-  background-color: var(--color-primary);
   z-index: -1;
 
   /* fish decoration */
   background-image: 
-    fish-svg("3f6f8c"),
-    fish-svg("3f6f8c"),
-    fish-svg("3f6f8c");
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4"),
+    svg.fish("BCE6E1", "B6DCD4");
   background-repeat: no-repeat;
-  background-size: 150px auto, 80px auto, 130px auto;
-  background-position: 5% 20%, 8% 80%, 90%  30%;
-}
-
-/* another background layer with box shadow*/
-#guidelines section.container {
-  position: relative;
-  z-index: 1;
-}
-
-#guidelines section.container {
-  background: linear-gradient(
-    to bottom,
-    rgba(26, 71, 109, 0.82),
-    rgba(22, 63, 99, 0.82)
-  );
-  border: 1px solid rgba(18,58,92,0.12);
-  box-shadow:
-    0 26px 60px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.65);
-}
-
-@media (max-width: 600px) {
-  article#guidelines::before {
-    background: none;
-  }
+  background-size: 
+    65px auto,
+    65px auto,
+    80px auto,
+    65px auto,
+    150px auto;
+  background-position: 
+    10% 30%,
+    5% 40%,
+    8% 80%, 
+    91% 35%,
+    90% 50%;
 }

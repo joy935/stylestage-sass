@@ -1,4 +1,7 @@
-@mixin decorative-wave($size, $color: var(--color-background), $color-wave: var(--color-secondary)) {
+/* ----------------------------------- *\
+  #Wave Utility
+\* ----------------------------------- */
+@mixin decorative-wave($size, $color:var(--color-background)) {
     display: inline-block;
     content: "";
     height: $size;
@@ -10,13 +13,11 @@
         transparent 20px
         ),
         radial-gradient(20px 20px at 68% 90%, 
-        $color-wave 0 19px,
+        var(--color-secondary) 0 19px,
         transparent 20px
         ),
         radial-gradient(20px 20px at 15% 70%,
-        $color-wave 0 19px,
+        var(--color-secondary) 0 19px,
         transparent 20px
         );
 }
-
-// filter: brightness(1.02);

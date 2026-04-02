@@ -1,86 +1,160 @@
+/* ----------------------------------- *\
+  #Header
+\* ----------------------------------- */
+@use "../utilities/svg";
+@use "../utilities/shadow_title";
+@use "../utilities/gradient_button";
+
+/* Fish mixin */
+@mixin fish-decoration($position) {
+  content: "";
+  position: absolute;
+  background-image: svg.fish();
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: $position;
+  opacity: 0.30;
+  pointer-events: none;
+}
+
 .skip-link {
   display: none;
 }
 
 header {
-  padding-bottom: 10px;
   margin: 10px;
   padding: 10px 0;
+  padding-bottom: 10px;
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 7vw, var(--font-size-h1));
+    margin-top: clamp(1rem, 6vh, 4rem);
+    padding-top: 0;
+    @include shadow_title.shadow-title(#c887db);
+  }
+
+  .container h1 {
+    position: relative;
+    overflow: hidden;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
+    grid-column: 1 / -1;
+    color: var(--color-primary);
+    text-align: left;
+  }
+
+  p,
+  .link-github {
+    grid-column: 2;
+    justify-self: end;
+  }
+
+  p a {
+    font-size: var(--font-size-text);
+    color: var(--color-body);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+      color: var(--color-anchor);
+    }
+  }
+
+  .link-github {
+    display: flex;
+    gap: 0.5em;
+    padding: 0.35em 0.5em;
+
+    color: var(--color-light);
+    text-decoration: none;
+    font-weight: var(--font-weight-strong);
+
+    border: 1px solid var(--color-anchor);
+    border-radius: 999px;
+    @include gradient_button.purple();
+
+    &:hover {
+      border: 1px solid var(--color-primary);
+    }
+  }
+
+  a.link-github svg {
+    width: 1.25em;
+    height: 1.25em;
+    flex: 0 0 auto;
+    display: block;
+    fill: var(--color-light);
+  }
 }
 
+/* fish decoration */
 header .container {
-  display: grid;
-  grid-template-columns: 1fr auto;
-}
-
-header h1 {
-  font-size: clamp(3rem, 7vw, var(--font-size-h1));
-  margin-top: clamp(1rem, 6vh, 4rem);
-  padding-top: 0;
-}
-
-header .container h1 {
   position: relative;
   overflow: hidden;
+  padding: 10px;
+
+  /* Large fish (top-right) */
+  &::before {
+    @include fish-decoration(right center);
+    top: 0;
+    right: 20px;
+    width: clamp(20rem, 33vw, 38rem);
+    aspect-ratio: 5 / 3; /* matches viewBox 100x60 */
+    height: auto;
+  }
+
+  /* Small fish (left-middle) */
+  &::after {
+    @include fish-decoration(left center);
+    bottom: 1.25rem;
+    left: 5rem;
+    width: 8rem;
+    height: 4.8rem;
+    transform: scaleX(-1);
+  }
 }
 
-
-header h2 {
-  font-size: clamp(1.5rem, 5vw, var(--font-size-h2));
-  grid-column: 1 / -1;
-  color: var(--color-primary);
-  text-align: left;
+/* animation to the fish in the header */
+@keyframes swim {
+  0% {
+    transform: translateX(0) scaleX(1);
+  }
+  50% {
+    transform: translateX(-10px) scaleX(1.05);
+  }
+  100% {
+    transform: translateX(0) scaleX(1);
+  }
+}
+header .container::before {
+  animation: swim 6s ease-in-out infinite;
 }
 
-header p,
-header .link-github {
-  grid-column: 2;
-  justify-self: end;
-}
-
-header p a {
-  font-size: var(--font-size-text);
-  color: var(--color-body);
-  text-decoration: none;
-}
-
-header p a:hover {
-  text-decoration: none;
-  color: var(--color-anchor);
-}
-
-header .link-github {
-  display: flex;
-  gap: 0.5em;
-  padding: 0.25em 0.5em;
-
-  color: var(--color-light);
-  text-decoration: none;
-  font-weight: var(--font-weight-strong);
-
-  border: 1px solid var(--color-anchor);
-  border-radius: 5px;
-  background-color: var(--color-anchor);
-}
-
-header a.link-github svg {
-  width: 1.25em;
-  height: 1.25em;
-  flex: 0 0 auto;
-  display: block;
-  fill: var(--color-light);
-}
-
-header .link-github:hover {
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-primary);
-}
-
-/* for smaller screens */
+/* Responsive layout */
 @media (max-width: 600px) {
   header p,
   header .link-github {
     grid-column: 1 / -1;
     justify-self: start;
+  }
+}
+
+@media (max-width: 1140px) {
+  header .container::after {
+    display: none;
+  }
+}
+
+/* Accessibility: Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .fish {
+    animation: none;
   }
 }

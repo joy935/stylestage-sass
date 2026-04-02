@@ -1,0 +1,60 @@
+@use "../utilities/svg";
+
+
+/* ----------------------------------- *\
+  #Fish Pattern Utility
+\* ----------------------------------- */
+@mixin fish {
+    background-image: svg.fish("9451CB", "c887db", -25);
+    background-repeat: repeat, repeat;
+    background-size: 90px 60px;
+    background-position: 0 0;
+    box-shadow: 0 16px 36px rgba(2, 6, 23, 0.16);
+    background-color: #4123A7;
+}
+
+
+/* ----------------------------------- *\
+  #Scales Pattern Utility
+\* ----------------------------------- */
+@mixin scales {
+background:
+    radial-gradient(
+        circle at 50% 100%, #9451CB 0 45px, transparent 46px)
+        35px 140px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #4123A7 0 45px, transparent 46px)
+        0 120px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #c887db 0 45px, transparent 46px)
+        35px 100px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #9451CB 0 45px, transparent 46px)
+        0 80px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #4123A7 0 45px, transparent 46px)
+        35px 60px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #c887db 0 45px, transparent 46px)
+        0 40px / 70px 70px repeat-x,
+    radial-gradient(
+        circle at 50% 100%, #9451CB 0 45px, transparent 46px)
+        35px 20px / 70px 70px repeat-x, 
+    radial-gradient(
+        circle at 50% 100%, #4123A7 0 45px, transparent 46px)
+        0 0 / 70px 70px repeat-x;
+}
+
+
+/* ----------------------------------- *\
+  #Turtle Pattern Utility
+\* ----------------------------------- */
+@mixin turtle {
+    background-image:
+        svg.turtle(9451CB, c887db, -22.5),
+        svg.turtle(9451CB, c887db, -22.5);
+    background-repeat: repeat, repeat;
+    background-size: 90px 90px, 90px 90px;
+    background-position: 0 0, 45px 45px;
+    background-color: #4123A7;
+}
