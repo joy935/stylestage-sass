@@ -1,6 +1,8 @@
 /* ----------------------------------- *\
   #Profile Section
 \* ----------------------------------- */
+@use "../utilities/gradient_button";
+
 aside.profile {
   margin: 2rem auto;
 
@@ -74,7 +76,7 @@ aside.profile {
     padding: 0.85rem 1.25rem;
     border-radius: 999px;
 
-    background: linear-gradient(135deg, #4338ca, #7c3aed);
+    @include gradient_button.purple();
     color: #fff;
     text-decoration: none;
     font-weight: 900;
@@ -88,7 +90,6 @@ aside.profile {
       text-decoration: none;
       transform: translateY(-2px);
       filter: brightness(1.03);
-      background: linear-gradient(135deg, #7c3aed, #4338ca);
     }
   }
 }

@@ -135,6 +135,9 @@ select {
 /* ----------------------------------- *\
   #Shadow Title Utility
 \* ----------------------------------- */
+/* ----------------------------------- *\
+  #Gradient Button Utility
+\* ----------------------------------- */
 /* Fish mixin */
 .skip-link {
   display: none;
@@ -192,6 +195,8 @@ header .link-github {
 }
 header .link-github:hover {
   background: linear-gradient(135deg, #7c3aed, #4338ca);
+}
+header .link-github:hover {
   border: 1px solid var(--color-primary);
 }
 header a.link-github svg {
@@ -698,6 +703,11 @@ aside#styles .link-allstyles {
   padding: 0.95rem 1.25rem;
   border-radius: 999px;
   background: linear-gradient(135deg, #4338ca, #7c3aed);
+}
+aside#styles .link-allstyles:hover {
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
+}
+aside#styles .link-allstyles {
   color: #fff;
   text-decoration: none;
   font-weight: 900;
@@ -705,7 +715,6 @@ aside#styles .link-allstyles {
   transition: transform 180ms ease, filter 180ms ease;
 }
 aside#styles .link-allstyles:hover, aside#styles .link-allstyles:focus {
-  background: linear-gradient(135deg, #7c3aed, #4338ca);
   transform: translateY(-2px);
   filter: brightness(1.03);
 }
@@ -846,13 +855,17 @@ aside#styles .link-allstyles:hover, aside#styles .link-allstyles:focus {
   padding: 0.75rem 1.1rem;
   border-radius: 999px;
   background: linear-gradient(135deg, #4338ca, #7c3aed);
+}
+#guidelines .link-guidelines:hover {
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
+}
+#guidelines .link-guidelines {
   border: 1px solid var(--color-anchor);
   box-shadow: 5px 5px 2px rgba(2, 6, 23, 0.1);
   text-decoration: none;
   color: var(--color-light);
 }
 #guidelines .link-guidelines:hover, #guidelines .link-guidelines:focus {
-  background: linear-gradient(135deg, #7c3aed, #4338ca);
   text-decoration: none;
 }
 
@@ -934,6 +947,11 @@ aside.profile a[href*="/styles/"] {
   padding: 0.85rem 1.25rem;
   border-radius: 999px;
   background: linear-gradient(135deg, #4338ca, #7c3aed);
+}
+aside.profile a[href*="/styles/"]:hover {
+  background: linear-gradient(135deg, #7c3aed, #4338ca);
+}
+aside.profile a[href*="/styles/"] {
   color: #fff;
   text-decoration: none;
   font-weight: 900;
@@ -945,7 +963,6 @@ aside.profile a[href*="/styles/"]:hover, aside.profile a[href*="/styles/"]:focus
   text-decoration: none;
   transform: translateY(-2px);
   filter: brightness(1.03);
-  background: linear-gradient(135deg, #7c3aed, #4338ca);
 }
 
 /* Small screens */
