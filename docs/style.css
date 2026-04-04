@@ -140,7 +140,14 @@ select {
 \* ----------------------------------- */
 /* Fish mixin */
 .skip-link {
-  display: none;
+  position: absolute;
+  top: -40px;
+  left: 0;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 header {
